@@ -1,0 +1,29 @@
+CppCon 2017: Mathieu Ropert “Using Modern CMake Patterns to Enforce a Good Modular Design”
+
+Dependencies relationships get way too complicated with "old" CMake
+"old" stands of < Cmake Version 3.0.0 (ex. CMake 2.8) where
+"modern" stands for >= version 3.0.0
+
+CMake is not a build system, it generates builds for multiple platforms
+CMake provide Portability for C, C++ codes
+
+Modular Design...
+3 hour talk about large-scale c++ software design : John Lakos cppcon...
+
+seperated libaries for different purposes so changing/replacing part
+of your project won't affect others
+
+idea: 	keep clear of the dependencies graph
+	make relationships between libraries explicit and checkable
+	protects you against bad patterns by forbidding you from using 	things that you didin't declare
+
+Prevent for using FLAGS as it cannot be checked in any way and you don't know what your scripts/libraries 
+are including and depending on. It is also easy to have circular dependencies with FLAGS.k
+
+Use MODULES
+Use MODULE FINDERS instead of target_include_directories... commands 
+if it doesn't exist, write one
+
+Summery
+keep your flags to yourself
+think in terms of modules
